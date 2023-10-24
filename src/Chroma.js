@@ -14,14 +14,13 @@ export default function Chroma() {
               </div>
             </div>
             <div className="col-3 time">10:23</div>
-            <section form className="mt-3">
+            <section className="mt-3">
               <div className="row form">
                 <div className="col text-center">
-                  <form className="search-form" i>
+                  <form className="search-form">
                     <input
                       type="search"
                       placeholder="Type a city.."
-                      autofocus="on"
                       className="form-control custom-btn btn-13"
                     />
 
