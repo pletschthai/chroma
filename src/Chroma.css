@@ -1,0 +1,146 @@
+.Weather li {
+  text-decoration: none;
+  list-style: none;
+}
+
+.Weather h1 {
+  font-size: 60px;
+}
+
+.Weather .date {
+  font-size: 20px;
+  text-align: center;
+  position: relative;
+  right: -29px;
+  bottom: -20px;
+  color: #fff;
+  text-shadow: var(--chroma-shadow);
+}
+.Weather .time {
+  font-size: 42px;
+  text-shadow: var(--chroma-shadow);
+}
+
+.Weather button {
+  margin: 20px;
+}
+.Weather .custom-btn {
+  color: #fff;
+  width: 120px;
+  height: 40px;
+  padding: 10px 25px;
+  font-family: "Oxanium", sans-serif;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+}
+.Weather .btn-13 {
+  color: #0bf4f3;
+  box-shadow: 0 0 5px #0bf4f3, 0 0 5px #0bf4f3 inset;
+  border: 1px solid #0bf4f3;
+  z-index: 1;
+}
+.Weather .btn-13:after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  box-shadow: 0 0 5px #0bf4f3, 0 0 5px #0bf4f3 inset;
+  transition: all 0.3s ease;
+}
+
+.Weather .btn-13:hover:after {
+  top: 0;
+  height: 100%;
+}
+.Weather .btn-13:active {
+  top: 2px;
+}
+.Weather .form {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+.Weather .form-control {
+  width: 230px;
+  background: transparent;
+  position: relative;
+  top: -4px;
+  color: white;
+}
+
+.Weather .geoPin {
+  position: relative;
+}
+
+.Weather .city {
+  text-align: center;
+}
+
+.Weather .temperature {
+  font-size: 100px;
+  position: relative;
+  top: -10px;
+  left: 30px;
+  color: #fff;
+  text-shadow: var(--chroma-shadow);
+}
+
+.Weather .description {
+  text-transform: capitalize;
+}
+.Weather .forecast {
+  padding: 20px;
+}
+.Weather .weather-forecast-date {
+  color: #fff;
+  text-shadow: var(--chroma-shadow);
+}
+
+.Weather .units {
+  position: relative;
+  top: -56px;
+  left: 30px;
+}
+.Weather .weatherInfo {
+  text-align: left;
+}
+
+.Weather .forecast-content {
+  position: relative;
+  z-index: 2;
+  background: black;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+}
+
+.Weather .box {
+  position: relative;
+  width: 800px;
+  height: 300px;
+  margin-left: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Weather .box h1 {
+  color: #fff;
+  font-size: 5em;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-shadow: var(--chroma-shadow);
+}
+
+.Weather .celsius-link {
+}
+
+.Weather .fahrenheit-link {
+}
