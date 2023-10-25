@@ -85,7 +85,11 @@ export default function Chroma() {
 
             <section className="forecast">Forecast for next 7 days</section>
             <footer>
-              <a href="https://github.com/pletschthai/chroma" target="_blank">
+              <a
+                href="https://github.com/pletschthai/chroma"
+                target="_blank"
+                rel="noreferrer"
+              >
                 Open Sourced on GitHub
               </a>{" "}
               by Thaina Hu
