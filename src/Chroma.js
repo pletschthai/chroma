@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./Chroma.css";
 import axios from "axios";
+import FormattedDate from "./FormattedDate";
+import FormattedHour from "./FormattedHour";
 
 export default function Chroma(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
@@ -10,6 +12,7 @@ export default function Chroma(props) {
     setWeatherData({
       ready: true,
       temperature: response.data.main.temp,
+      date: new Date(response.data.dt * 1000),
       wind: response.data.wind.speed,
       humidity: response.data.main.humidity,
       city: response.data.name,
@@ -28,10 +31,14 @@ export default function Chroma(props) {
             <div className="row">
               <div className="col">
                 <div className="date text-center">
-                  <span id="date">October 19, 2023</span>
+                  <span id="date">
+                    <FormattedDate date={weatherData.date} />
+                  </span>
                 </div>
               </div>
-              <div className="col-3 time">10:23</div>
+              <div className="col-3 time">
+                <FormattedHour hour={weatherData.date} />
+              </div>
               <section className="mt-3">
                 <div className="row form">
                   <div className="col text-center">
@@ -82,7 +89,7 @@ export default function Chroma(props) {
                   </div>
 
                   <div className="col mt-3">
-                    <span className=" descriptiontext-capitalize">
+                    <span className=" description text-capitalize">
                       {weatherData.description}
                     </span>
                     <br />
