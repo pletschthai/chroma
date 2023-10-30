@@ -3,10 +3,11 @@ import "./Chroma.css";
 import axios from "axios";
 import FormattedDate from "./FormattedDate";
 import FormattedHour from "./FormattedHour";
+import WeatherInfo from "./WeatherInfo";
 
 export default function Chroma(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
-
+  const [city, setCity] = useState(props.defaultCity);
   function apiResponse(response) {
     console.log(response.data);
     setWeatherData({
@@ -20,6 +21,21 @@ export default function Chroma(props) {
       description: response.data.weather[0].description,
       iconUrl: "https://ssl.gstatic.com/onebox/weather/64/sunny.png",
     });
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    search();
+  }
+
+  function handleCityChange(event) {
+    setCity(event.target.value);
+  }
+
+  function search() {
+    const apiKey = "c76db1bd2c2a808bab15d20555e59a59";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(apiResponse);
   }
 
   if (weatherData.ready) {
@@ -42,11 +58,12 @@ export default function Chroma(props) {
               <section className="mt-3">
                 <div className="row form">
                   <div className="col text-center">
-                    <form className="search-form">
+                    <form className="search-form" onSubmit={handleSubmit}>
                       <input
                         type="search"
                         placeholder="Type a city.."
                         className="form-control custom-btn btn-13"
+                        onChange={handleCityChange}
                       />
 
                       <button
@@ -66,53 +83,7 @@ export default function Chroma(props) {
                   </div>
                 </div>
               </section>
-
-              <section className="city mt-3">
-                <div className="row">
-                  <div className="box">
-                    <h1 className="city">{weatherData.city}</h1>
-                  </div>
-
-                  <div className="col">
-                    <span className="temperature">
-                      {Math.round(weatherData.temperature)}
-                    </span>
-                    <span className="units">
-                      <a href="/" className=" celsius-link active">
-                        °C
-                      </a>{" "}
-                      |
-                      <a href="/" className="fahrenheit-link">
-                        °F
-                      </a>
-                    </span>
-                  </div>
-
-                  <div className="col mt-3">
-                    <span className=" description text-capitalize">
-                      {weatherData.description}
-                    </span>
-                    <br />
-                    <img
-                      src={weatherData.iconUrl}
-                      alt={weatherData.description}
-                      width="40"
-                    />
-                  </div>
-
-                  <div className="col mt-3">
-                    <div className="weatherInfo">
-                      <ul>
-                        <li id="humidity">Humidity: {weatherData.humidity}%</li>
-                        <li id="wind">Wind: {weatherData.wind} Km/h</li>
-                        <li id="feelsLike">
-                          Feels Like: {weatherData.feelslike}°C
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </section>
+              <WeatherInfo data={weatherData} />
 
               <section className="forecast">Forecast for next 7 days</section>
               <footer>
@@ -131,10 +102,7 @@ export default function Chroma(props) {
       </div>
     );
   } else {
-    const apiKey = "c76db1bd2c2a808bab15d20555e59a59";
-    let city = props.defaultCity;
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-    axios.get(apiUrl).then(apiResponse);
+    search();
     return "Loading...";
   }
 }
