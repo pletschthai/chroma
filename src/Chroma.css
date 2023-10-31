@@ -84,9 +84,9 @@
 }
 
 .Weather .temperature {
-  font-size: 100px;
+  font-size: 130px;
   position: relative;
-  top: -10px;
+  top: -30px;
   left: 30px;
   color: #fff;
   text-shadow: var(--chroma-shadow);
@@ -105,8 +105,8 @@
 
 .Weather .units {
   position: relative;
-  top: -56px;
-  left: 30px;
+  top: -86px;
+  left: 60px;
 }
 .Weather .weatherInfo {
   text-align: left;
