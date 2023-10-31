@@ -1,16 +1,16 @@
 import React from "react";
 
-export default function WeatherInfo() {
+export default function WeatherInfo(props) {
   return (
     <section className="city mt-3">
       <div className="row">
         <div className="box">
-          <h1 className="city">{weatherData.city}</h1>
+          <h1 className="city">{props.data.city}</h1>
         </div>
 
         <div className="col">
           <span className="temperature">
-            {Math.round(weatherData.temperature)}
+            {Math.round(props.data.temperature)}
           </span>
           <span className="units">
             <a href="/" className=" celsius-link active">
@@ -25,12 +25,12 @@ export default function WeatherInfo() {
 
         <div className="col mt-3">
           <span className=" description text-capitalize">
-            {weatherData.description}
+            {props.data.description}
           </span>
           <br />
           <img
-            src={weatherData.iconUrl}
-            alt={weatherData.description}
+            src={props.data.iconUrl}
+            alt={props.data.description}
             width="40"
           />
         </div>
@@ -38,9 +38,9 @@ export default function WeatherInfo() {
         <div className="col mt-3">
           <div className="weatherInfo">
             <ul>
-              <li id="humidity">Humidity: {weatherData.humidity}%</li>
-              <li id="wind">Wind: {weatherData.wind} Km/h</li>
-              <li id="feelsLike">Feels Like: {weatherData.feelslike}°C</li>
+              <li id="humidity">Humidity: {props.data.humidity}%</li>
+              <li id="wind">Wind: {props.data.wind} Km/h</li>
+              <li id="feelsLike">Feels Like: {props.data.feelslike}°C</li>
             </ul>
           </div>
         </div>
