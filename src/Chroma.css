@@ -84,10 +84,10 @@
 }
 
 .Weather .temperature {
-  font-size: 130px;
+  font-size: 110px;
   position: relative;
-  top: -30px;
-  left: 30px;
+  top: -10px;
+  left: 5px;
   color: #fff;
   text-shadow: var(--chroma-shadow);
 }
@@ -105,8 +105,9 @@
 
 .Weather .units {
   position: relative;
-  top: -86px;
-  left: 60px;
+  font-size: 16px;
+  top: -66px;
+  left: 20px;
 }
 .Weather .weatherInfo {
   text-align: left;
@@ -137,10 +138,4 @@
   font-weight: 600;
   letter-spacing: 0.1em;
   text-shadow: var(--chroma-shadow);
-}
-
-.Weather .celsius-link {
-}
-
-.Weather .fahrenheit-link {
 }
