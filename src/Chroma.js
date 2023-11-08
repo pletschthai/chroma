@@ -4,6 +4,7 @@ import axios from "axios";
 import FormattedDate from "./FormattedDate";
 import FormattedHour from "./FormattedHour";
 import WeatherInfo from "./WeatherInfo";
+import Forecast from "./Forecast";
 
 export default function Chroma(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
@@ -20,6 +21,7 @@ export default function Chroma(props) {
       feelslike: response.data.main.feels_like,
       description: response.data.weather[0].description,
       icon: response.data.weather[0].icon,
+      coordinates: response.data.coord,
     });
   }
 
@@ -85,7 +87,9 @@ export default function Chroma(props) {
               </section>
               <WeatherInfo data={weatherData} />
 
-              <section className="forecast">Forecast for next 7 days</section>
+              <section className="forecast">
+                <Forecast coordinates={weatherData.coordinates} />
+              </section>
               <footer>
                 <a
                   href="https://github.com/pletschthai/chroma"
