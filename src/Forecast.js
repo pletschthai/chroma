@@ -17,9 +17,15 @@ export default function Forecast(props) {
     return (
       <div className="neon-cards">
         <div className="WeatherForecast">
-          <div className="card text-center">
-            <ForecastDay data={forecastData[0]} />
-          </div>
+          {forecastData.map(function (dailyForecast, index) {
+            if (index < 6) {
+              return (
+                <div className="card text-center" key={index}>
+                  <ForecastDay data={dailyForecast} />
+                </div>
+              );
+            }
+          })}
         </div>
       </div>
     );
