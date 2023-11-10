@@ -15,19 +15,17 @@ export default function Forecast(props) {
     console.log(forecastData);
     return (
       <div className="neon-cards">
-        <div className="WeatherForecast">
-          {forecastData.map(function (dailyForecast, index) {
-            if (index < 6) {
-              return (
-                <div className="card text-center" key={index}>
-                  <ForecastDay data={dailyForecast} />
-                </div>
-              );
-            } else {
-              return <></>;
-            }
-          })}
-        </div>
+        {forecastData.map(function (dailyForecast, index) {
+          if (index < 6) {
+            return (
+              <div className="card text-center" key={index}>
+                <ForecastDay data={dailyForecast} />
+              </div>
+            );
+          } else {
+            return <></>;
+          }
+        })}
       </div>
     );
   } else {
